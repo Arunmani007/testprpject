@@ -3,8 +3,7 @@ pipeline {
   stages {
     stage('test') {
       steps {
-        sh '''java --version
-ansible --version'''
+        sh 'ansible --version'
       }
     }
 

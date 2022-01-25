@@ -1,9 +1,14 @@
 pipeline {
-  agent any
+  agent {
+    node {
+      label 'kube-master'
+    }
+
+  }
   stages {
     stage('test') {
       steps {
-        sh 'ansible --version'
+        sh 'kubectl get nodes'
       }
     }
 

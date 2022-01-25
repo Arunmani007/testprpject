@@ -6,9 +6,9 @@ pipeline {
 
   }
   stages {
-    stage('test') {
+    stage('build') {
       steps {
-        sh 'kubectl get nodes'
+        build 'vprofile-project-VP-TEST/pom.xml'
       }
     }
 

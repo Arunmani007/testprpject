@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        build 'vprofile-project-VP-TEST/pom.xml'
+        build '/root/project/workspace/testprpject_main/vprofile-project-VP-TEST/pom.xml'
       }
     }
 

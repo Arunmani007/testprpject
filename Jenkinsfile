@@ -1,16 +1,10 @@
-pipeline {
-  agent {
-    node {
-      label 'kube-master'
+pipeline{
+    agent any
+    stages{
+        stage("this is testing"){
+            steps{
+                echo "this is testing"
+            }
+        }
     }
-
-  }
-  stages {
-    stage('build') {
-      steps {
-        build '/root/project/workspace/testprpject_main/vprofile-project-VP-TEST/pom.xml'
-      }
-    }
-
-  }
 }

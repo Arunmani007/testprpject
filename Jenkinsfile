@@ -6,7 +6,7 @@ pipeline{
     stages{
         stage("this is testing"){
             steps{
-                echo "this is done by ${Arun}"
+                sh 'docker build .'
             }
         }
     }

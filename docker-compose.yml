@@ -1,0 +1,24 @@
+version: "3.6"
+
+networks:
+  splunknet:
+    driver: bridge
+    attachable: true
+
+services:
+  hf1:
+    networks:
+      splunknet:
+        aliases:
+          - hf1
+    image: ${SPLUNK_IMAGE:-splunk/splunk:latest}
+    hostname: hf1
+    container_name: hf1
+    environment:
+      - SPLUNK_START_ARGS=--accept-license
+      - SPLUNK_ROLE=splunk_heavy_forwarder
+      - SPLUNK_INDEXER_URL=https://http-inputs-adp-cloud.splunkcloud.com/services/collector/event
+      - SPLUNK_ADD=tcp 443
+      - SPLUNK_PASSWORD
+    ports:
+      - 443

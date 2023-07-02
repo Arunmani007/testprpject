@@ -1,12 +1,15 @@
 pipeline{
     agent any
-    parameters {
-          string defaultValue: 'Suba', description: 'Testing', name: 'Arun'
-        }
+    
     stages{
-        stage("this is testing"){
+        stage("Git Clone"){
             steps{
-                sh 'docker build .'
+                    git branch: 'main', url: 'https://github.com/Arunmani007/testprpject.git'
+            }
+        }
+        stage("Build docker image"){
+            steps{
+                sh 'SPLUNK_PASSWORD=password docker-compose up -d'
             }
         }
     }
